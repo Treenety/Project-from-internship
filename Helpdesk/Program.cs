@@ -15,6 +15,7 @@ builder.Services.AddScoped<CreateRepozitory>();
 builder.Services.AddScoped<IProgramControllerService, ProgramControllerService>();
 builder.Services.AddScoped<INotificationControllerService, NotificationControllerService>();
 builder.Services.AddScoped<IProgramVersionControllerService, ProgramVersionControllerService>();
+builder.Services.AddScoped<IRequestService, RequestService>();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -89,6 +90,9 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
    pattern: "{controller=ProgramVers}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+   pattern: "{controller=Request}/{action=Index}/{id?}");
 
 
 app.Run();

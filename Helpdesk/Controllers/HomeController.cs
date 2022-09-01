@@ -5,7 +5,8 @@ using System.Diagnostics;
 
 namespace Helpdesk.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
+    //[Authorize(Roles = "Administrator")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

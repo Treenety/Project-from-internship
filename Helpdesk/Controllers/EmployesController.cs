@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Helpdesk.Controllers
 {
+    [Authorize]
     [Authorize(Roles = "Administrator")]
     public class EmployesController : Controller
     {
@@ -27,6 +28,7 @@ namespace Helpdesk.Controllers
 
             return View();
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Employes obj)
@@ -41,7 +43,7 @@ namespace Helpdesk.Controllers
             return View(obj);
         }
 
-
+        [Authorize(Roles = "Administrator")]
         public IActionResult Index(string? searchString, int pg = 1)
         {
 

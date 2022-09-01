@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Helpdesk.Controllers
 {
+    [Authorize]
     [Authorize(Roles = "Administrator")]
     public class ProgramVersionController : Controller
     {
@@ -26,7 +27,7 @@ namespace Helpdesk.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Vers obj)

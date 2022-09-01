@@ -15,5 +15,7 @@ namespace Helpdesk.Data
         public DbSet<Programs> Prog { get; set; }
         public DbSet<Notification> Notific { get; set; }
         public DbSet<Vers> Vers { get; set; }
+
+        public DbSet<Request> Req { get; set; }
     }
 }

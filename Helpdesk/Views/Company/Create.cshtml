@@ -1,4 +1,8 @@
 ﻿@model Companys
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
 
 <form method="post">
     <div class="border p-3 mt-4">
@@ -13,11 +17,13 @@
     <span asp-validation-for="NameCompany" class="text-danger"></span>
 </div>
 
-<div class="mb-3">
+    <div class="mb-3">
     <label asp-for="NIP"></label>
     <input asp-for="NIP" class="form-control" />
     <span asp-validation-for="NIP" class="text-danger"></span>
 </div>
+
+
 <div class="mb-3">
     <label asp-for="City"></label>
     <input asp-for="City" class="form-control" />

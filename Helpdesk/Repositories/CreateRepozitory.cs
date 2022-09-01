@@ -33,6 +33,11 @@ namespace Helpdesk.Repositories
             _db.Vers.Add(obj);
             _db.SaveChanges();
         }
+        public void Create4(Request obj)
+        {
+            _db.Req.Add(obj);
+            _db.SaveChanges();
+        }
 
 
         public void Update(Companys obj)

@@ -6,38 +6,35 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Helpdesk.Controllers
 {
-    [Authorize]
-    [Authorize(Roles = "Administrator")]
-    public class ProgramController : Controller
-    {
+
    
+    public class RequestController : Controller
+    {
         private readonly ApplicationDbContext _db;
 
 
-        private readonly IProgramControllerService service;
+        private readonly IRequestService service;
 
-
-        public ProgramController(IProgramControllerService service, ApplicationDbContext db)
+        public RequestController(IRequestService service, ApplicationDbContext db)
         {
             this.service = service;
             _db = db;
         }
-        public IActionResult Index() => View(service.GetAllPrograms());
-
+        public IActionResult Index() => View(service.GetAllReq());
         public IActionResult Create()
         {
 
             return View();
         }
-        [Authorize(Roles = "Administrator")]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Programs obj)
+        public IActionResult Create(Request obj)
         {
 
             if (ModelState.IsValid)
             {
-                service.Create1(obj);
+                service.Create4(obj);
                 return RedirectToAction("Index");
             }
             return View(obj);
